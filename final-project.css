@@ -1,0 +1,315 @@
+/*
+    Author: Maxwell Rosenthal
+    Assignment: Assignment 3
+    Course: CS-356: Dynamic Webpage Development
+    Date: November 23, 2022
+    Description: CSS formatting to be applied to the html documents of this assignment.
+ */
+
+@font-face
+{
+    src: url("Assets/Persistent/IBM-Logo.ttf"); /* Import the IBM Logo font. */
+    font-family: "IBM-Logo"; /* Name the font IBM-Logo within the CSS. */
+} /* @font-face */
+
+body { background-color: rgb(13, 86, 119); } /* Make the background of the webpage dark blue. */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* Navigation Menu CSS - Code derived from https://www.w3schools.com/howto/howto_js_sidenav.asp
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* The side navigation menu. */
+.sidenav
+{
+    height: 100%; /* 100% Full-height. */
+    width: 0; /* 0 width - change this with JavaScript. */
+    position: fixed; /* Stay in place. */
+    z-index: 1; /* Stay on top. */
+    top: 0; /* Stay at the top. */
+    left: 0; /* Stay at the left. */
+    background-color: rgb(195, 29, 36); /* Set the background color to red. */
+    overflow-x: hidden; /* Disable horizontal scroll. */
+    padding-top: 60px; /* Place content 60px from the top. */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav. */
+} /* End .sidenav. */
+
+/* The navigation menu links. */
+.sidenav a
+{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(50, 50, 50);
+    display: block;
+    transition: 0.3s;
+} /* End .sidenav a. */
+
+/* When you mouse over the navigation links, change their color. */
+.sidenav a:hover { color: white; }
+
+/* Position and style the close button (top right corner). */
+.sidenav .closebtn
+{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+} /* End .sidenav .closebtn. */
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) -
+    Code utilized from https://www.w3schools.com/howto/howto_js_sidenav.asp. */
+@media screen and (max-height: 450px)
+{
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+} /* End @media screen and (max-height: 450px). */
+
+/* * * * * * * * * * *
+* Navigation Bar CSS
+* * * * * * * * * * */
+
+#navBar
+{
+    background-color: white; /* Make the navigation bar white. */
+    padding: 20px; /* Add 10 pixels of padding. */
+    overflow: hidden; /* Expand the navigation bar color and padding to the floated left and rigth navigation divs. */
+} /* Make the navigation bar white. */
+
+#leftNav { float: left; } /* Make this half of the nav bar be on the left. */
+
+#rightNav { float: right; } /* Make this half of the nav bar be on the right. */
+
+#menuButton
+{
+    vertical-align: middle; /* Vertically center the menu button. */
+    transition: 0.7s; /* Add a transition animation for the hovering action. */
+} /* End #menuButton. */
+
+#menuButton:hover { filter: invert() brightness(35%); } /* Invert and reduce the brightness of the menu button by 65% on hover. */
+
+#banner { vertical-align: middle; } /* Center the banner. */
+
+#searchBoxContainer { display: inline; } /* Make it so that the search box container is on the same line as the search button. */
+
+#searchBox
+{
+    vertical-align: middle; /* Center the search box. */
+    padding: 7px; /* Pad the search bar. */
+} /* End #searchBox. */
+
+#searchButton
+{
+    vertical-align: middle; /* Center the search button. */
+    transition: 0.3s; /* Add a transition animation for the hovering action. */
+} /* End #searchButton. */ 
+
+#searchButton:hover { filter: brightness(70%); } /* Darken the search button to 70% brightness on hover. */
+
+/* * * * * *
+* Text CSS
+* * * * * */
+
+.headerBackdrop
+{
+    width: fit-content; /* Fit to the relative width of the content. */
+    background-color: white; /* Make the background color white. */
+    max-width: 90%;
+} /* End .headerBackdrop. */
+
+h1
+{
+    padding: 5px; /* Add top padding. */
+    color: rgb(195, 29, 36); /* Make the text red. */
+    font-size: 30px; /* Set the font size to 30 pixels. */
+    width: fit-content; /* Fit to the relative width of the content. */
+    max-width: 100%;
+    margin-bottom: 0px; /* Remove the bottom margin. */
+    padding-bottom: 0px; /* Remove bottom padding. */
+    font-family: "IBM-Logo"; /* Set the font to the IBL Logo font. */
+    word-wrap: break-word; /* Fix word wrapping issues */
+} /* End h1. */
+
+h2
+{
+    margin-top: 0px; /* Remove the bottom margin. */
+    margin-bottom: 0px; /* Remove the bottom margin. */
+    color: rgb(50, 50, 50); /* Make the text dark gray */
+    font-size: 24px; /* Set the font size to 24 pixels. */
+    width: fit-content; /* Fit to the relative width of the content. */
+    max-width: 100%;
+    font-family: "IBM-Logo"; /* Set the font to the IBL Logo font. */
+    padding-top: 5px; /* Add bottom padding. */
+    padding-left: 5px; /* Add bottom padding. */
+    padding-right: 5px; /* Add bottom padding. */
+    padding-bottom: 0px; /* Remove bottom padding. */
+    word-wrap: break-word; /* Fix word wrapping issues */
+} /* End h2. */
+
+p
+{
+    margin-top: 0px;
+    color: white; /* Make the text dark gray */
+    max-width: 85%; /* Make the text not exceed 95% of the page size. */
+    width: fit-content; /* Fit to the relative width of the content. */
+    font-size: 18px; /* Set the font size to 18 pixels. */
+    background-color: rgb(50, 50, 50); /* Make the text have a gray background. */
+    padding: 5px; /* Add five pixels of padding. */
+    word-wrap: break-word; /* Fix word wrapping issues */
+} /* End p. */
+
+.link { color: white; } /* Make link text color white. */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* Video CSS - Code derived from https://codepen.io/cobycreative/pen/oNPJpr.
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.wrapper
+{
+    max-width:80%;
+    margin:0 auto;
+    background-color:black;
+} /* End .wrapper. */
+
+.h_iframe
+{
+    position: relative;
+    padding-top: 56%;
+} /* End .h_iframe. */
+
+.h_iframe iframe
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+} /* End .h_iframe iframe. */
+
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* Split screen CSS - Code derived from https://www.w3schools.com/howto/howto_css_split_screen.asp.
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#pageContents
+{
+    padding: 10px; /* Add top padding. */
+}
+
+/* Split the screen in half. */
+.split
+{
+    position: fixed;
+    overflow-x: hidden;
+    height: calc(100% - 8em);
+    padding: 10px; /* Add padding. */
+}
+
+/* Control the left side. */
+.left75
+{
+    left: 0;
+    max-width: 75%;
+    width: 75%;
+}
+
+/* Control the right side. */
+.right25
+{
+    right: 0;
+    max-width: 25%;
+    width: 25%;
+    background-color: rgb(195, 29, 36);
+    vertical-align: middle;
+}
+
+/* Control the left side. */
+.left50
+{
+    left: 0;
+    max-width: 50%;
+    width: 50%;
+}
+
+/* Control the right side. */
+.right50
+{
+    right: 0;
+    max-width: 50%;
+    width: 50%;
+    background-color: rgb(195, 29, 36);
+    vertical-align: middle;
+}
+
+/* Control the left side when vertical on mobile. */
+/* .leftVertical {} */
+
+/* Control the right side when vertical on mobile. */
+.rightVertical
+{
+    margin: auto;
+    padding: 5px;
+    padding-top: 10px;
+    background-color: rgb(195, 29, 36);
+    max-width: 95%;
+}
+
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* Flexbox CSS - Code derived from https://www.w3schools.com/css/css3_flexbox_responsive.asp.
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.flex-container
+{
+    margin: auto;
+    max-width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item-left
+{
+    margin-left: 0px;
+    background-color: rgb(195, 29, 36);
+    padding: 15px;
+    padding-bottom: 0px;
+    width: 45%;
+    max-width: 45%;
+    margin-bottom: 35px;
+    flex: 50%;
+}
+
+.flex-item-right
+{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(195, 29, 36);
+    padding: 15px;
+    padding-bottom: 0px;
+    width: 45%;
+    max-width: 45%;
+    margin-bottom: 35px;
+    flex: 50%;
+}
+
+.flex-item-vertical-horizontal
+{
+    margin-right: auto;
+    background-color: rgb(195, 29, 36);
+    padding: 15px;
+    width: 85%;
+    max-width: 85%;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+flex: 100%;
+}
+
+.flex-item-vertical-vertical
+{
+    margin: auto;
+    background-color: rgb(195, 29, 36);
+    padding: 15px;
+    width: 90%;
+    max-width: 90%;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+    flex: 100%;
+}
