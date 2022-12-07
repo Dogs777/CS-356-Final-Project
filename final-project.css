@@ -160,6 +160,8 @@ p
 
 .link { color: white; } /* Make link text color white. */
 
+a { color: white; } /* Make a text color white. */
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * Video CSS - Code derived from https://codepen.io/cobycreative/pen/oNPJpr.
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */

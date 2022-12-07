@@ -148,30 +148,29 @@
                     
                     //Read each feed's items
                     $entries = array();
-                    foreach($feeds as $feed) {
+                    foreach($feeds as $feed)
+                    {
                         $xml = simplexml_load_file($feed);
                         $entries = array_merge($entries, $xml->xpath("//item"));
                     }
                     
                     //Sort feed entries by pubDate
-                    usort($entries, function ($feed1, $feed2) {
-                        return strtotime($feed2->pubDate) - strtotime($feed1->pubDate);
-                    });
-                    
+                    usort($entries, function ($feed1, $feed2) { return strtotime($feed2->pubDate) - strtotime($feed1->pubDate); });
                 ?>
 
                 <?php
                     //Print all the entries
-                    foreach($entries as $entry){
+                    foreach($entries as $entry)
+                    {
                         ?>
-                        <div class = "headerBackdrop" style = "background-color: rgb(50, 50, 50);">
-                        <?= $entry->description ?>
-                        <p><b>
-                        <br><br> <!-- Add two newlines. -->
-                        <a href="<?= $entry->link ?>" class = "link"><?= $entry->link ?></a>
-                        <br> <!-- Add a newline. -->
-                        <?= strftime('%m/%d/%Y %I:%M %p', strtotime($entry->pubDate)) ?>
-                        </b></p>
+                        <div style = "background-color: rgb(50, 50, 50);">
+                            <b><?= $entry->description ?></b>
+                            <p style = "max-width: 95%; width: 95%; display: block; margin-left: auto; margin-right: auto;"><b>
+                                <br> <!-- Add a newline. -->
+                                <b><a href="<?= $entry->link ?>" class = "link">View on Nitter</a></b>
+                                <br> <!-- Add a newline. -->
+                                <?= strftime('%m/%d/%Y %I:%M %p', strtotime($entry->pubDate)) ?>
+                            </b></p>
                         </div>
                         <?php
                     }
