@@ -143,6 +143,7 @@
                     $feeds = array(
                         "https://nitter.snopyta.org/GoldsGym/rss",
                         "https://nitter.snopyta.org/LAFitness/rss",
+                        // A comma is needed on the last index of the array for this code to work for some reason. It might be a thing later on though I don't entirely know how to PHP. 
                     );
                     
                     //Read each feed's items
