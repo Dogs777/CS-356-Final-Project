@@ -3,18 +3,51 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Fitness Fixer</title>
-    <script src="javascript.js"></script>
-    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="stylesheet" href="StyleSheet1.css" />
+    <script src="Script1.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Health and Fitness for All</title>
 </head>
-<body onload="test1()">
-    <h1 class="header">Fitness Fixer</h1>
-    <div class="login">
-        <h1 style="text-align: center; margin-bottom: 38px;">Sign In</h1>
-        <input type="text" id="email" style="width: 100%; font-size: 20px; margin-bottom: 10px;" placeholder="Email Address" />
-        <input type="password" id="password" style="width: 100%; font-size: 20px; margin-bottom: 30px;" placeholder="Password" />
-        <button onclick="login()" style="width: 49%;">Login</button>
-        <button onclick="create()" style="width: 49%;">Create Account</button>
+<body onload>
+    <div class="banner">
+        <div class="banner_title">
+            <p style="margin: 10px 4px 0px 0px;">The Fitness Chronicles</p>
+        </div>
+        <div class="banner_buttons">
+            <button class="banner__buttons" id="homebutton">
+                Home
+                <span class="material-icons">
+                    home
+                </span>
+            </button>
+            <button onclick="location.href = 'news.html';">
+                News
+                <span class="material-symbols-outlined">
+                    newspaper
+                </span>
+            </button>
+            <button onclick="location.href = 'bmr.html';">
+                BMR
+                <span class="material-symbols-outlined">
+                    calculate
+                </span>
+            </button>
+        </div>
     </div>
+    <p style="text-align: justify; margin-left: 3em; margin-right: 3em;">Welcome to The Fitness Chronicles, this page is dedicated towards better understanding how health, fitness, and the gym are excellent tools towards feeling better. Our home page is specifically go over the general information about working out. Afterall, the easiest way to look and feel better comes down to the basics, food, water, sleep, and exercise.</p>
+        
+    <h1 style="margin-left: 1.5em;">Food</h1>
+    <p style="margin-top: 3px; text-align: justify; margin-left: 3em; margin-right: 3em;">Food is the first step in order to change how you feel. Understanding the building blocks of food can help to find your body's loopholes and to feel fuller eating less. Firstly, protein! This macronutrient provides the body four calories per gram and is the greatest method towards feeling fuller. This macro also allows for muscle protein synthesis, meaning that it helps build muscle. A good rule of thumb is about 1g of protein should be consumed for every 1lb of lean mass. As for carbohydrates, this is similar to protein in that it provides four calories for every gram, but also behaves differently. Typically , this macro does not fill you up, additionally eating simple sugars (candy, breads, desserts) can cause weight gain in sufficient amounts. This is mainly due to being able to consume so many grams and not feel full. This is why carbs found in rice, vegetables, and fruits are a better alternative as they provide more complex carbs (more time to break it up means more likely to feel full) as well as more micronutrients (vitamins and minerals). Lastly, fat. There is a lot of misconception with fat being unhealthy, when in reality some of the healthier foods (salmon, eggs, etc.) come with fat. This is a very energy dense food as it provides nine calories per gram, and does not give a crash if you consume it (unlike sugar). For both carbohydrates and fats, the biggest takeaway for amounts is it varies from person to person and you should do what feels natural so long as what you ar eeating is not heavy on one versus the other, and that it tracks evenly with your calorie count.</p>
+    
+    <h1 style="margin-left: 1.5em;">Water</h1>
+    <p style="margin-top: 3px; text-align: justify; margin-left: 3em; margin-right: 3em;">This section will be short and sweet. One of the biggest mistakes that goes on when trying to build muscle is not properly hydrating yourself. Think about it, you go to the gym, or a walk, and you sweat buckets. This leaves a need for more water in your body. Properly hyhdrating can lead to increse in strength and can also help to cut calories. In fact, one of my biggest tips is to replace one or two beverages like soda and alcohol with a water instead each day. This will lead to feeling just as full while also consuming less unnecessary calories. Adult men should consume over three liters of water a day, and women over two. The more the merrier.</p>
+
+    <h1 style="margin-left: 1.5em;">Sleep</h1>
+    <p style="margin-top: 3px; text-align: justify; margin-left: 3em; margin-right: 3em;">In an age where kids and teens are staying up well past 2am, it is important to realize how detrimental that habit is. This does more than just leave you sluggish the next day. It can negatively affect your hormones and result in decrease in muscle long term. Additionally, having this bad habit can lead to others, like missing the gym or staying home on the couch for longer. About eight hours is the recommended amount of sleep for most teens and adults, and even more for kids. I cannot stress this enough how important this section is. In fact, there's even more to this. It is beneficial to your body to go to bed at a reasonable time as well and consistently. Around nightfall (9pm-11pm) should be around the best times to fall asleep as your body should produce melatonin (the body's way of feeling sleepy) during this time.</p>
+
+    <h1 style="margin-left: 1.5em;">Exercise</h1>
+    <p style="margin-top: 3px; text-align: justify; margin-left: 3em; margin-right: 3em;">Exercise really ties this all together. You have better nutrition habits, and sleeping, but where does this all go without exercise. There is a strong reason why we used to hunt for food. We could not survive off of what was provided in the land in the form of fruits, crops, and seeds. In order to eat we had to hunt. This was the physicaly exertion we needed to survive. A good goal when starting off is to have two rules, go at least five times a day, and to never have a rest day two days in a row. This is hard when beginning, but that is exactly when you need to set this habit. Maybe some days you just do some light cardio, that is fine as long as you're moving and pumping blood. Strength training is an excellent form of exercise as well. The building of muscle allows you to need to eat more (why do you think I got into lifting) and feel better. There are plenty of gyms out there with personal training and amazing fellow gym-goers who are willing to help someone in need. The gym is an amazing outlet for stress as you can work out a lot of mixed feelings or pain here.</p>
+    <img src="images/pyramid.png" style="display: block; margin-left: auto; margin-right: auto; width: 300px; "/>
 </body>
 </html>
