@@ -1,0 +1,80 @@
+<!--
+    Author: Maxwell Rosenthal
+    Assignment: Assignment 3
+    Course: CS-356: Dynamic Webpage Development
+    Date: November 23, 2022
+    Description: The homepage of the website.
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <!-- Head HTML. -->
+
+    <head>
+        <title>Assignment 3</title> <!-- Add the webpage's title. -->
+        <link rel = "stylesheet" href = "assignment-3.css"/> <!-- Import the CSS for the webpage. -->
+        <script src = "functionality.js" type = "text/javascript"></script> <!-- Import the JavaScript for the webpage. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Scale the viewport to fix viewport scaling related issues (See https://devcom.w3schools.com/css/css_rwd_viewport.asp). -->
+    </head> <!-- End head. -->
+
+    <!-- Body HTML. -->
+
+    <body onload = "sizeAdjust()">
+        <!-- Create a div for the side navigation. -->
+        <!-- Code derived from https://www.w3schools.com/howto/howto_js_sidenav.asp. -->
+        <div id="mySidenav" class="sidenav">
+            <a href = "javascript:void(0)" class = "closebtn" onclick = "closeNav()"><b>&times;</b></a> <!-- Add a button that closes the side navigation. -->
+            <a href = "index.html"><b>Homepage</b></a> <!-- Add a redirect to the homepage. -->
+            <a href = "nightwatchers.html"><b>The Nightwatchers</b></a> <!-- Add a redirect to the Nightwatchers page. -->
+            <a href = "capitolBroadcastTrade.php"><b>Capitol Broadcast Trade</b></a> <!-- Add a redirect to the broadcast trade page. -->
+            <a href = "education.html"><b>Broadcast Education</b></a> <!-- Add a redirect to an educational page. -->
+            <a href = "about.php"><b>About</b></a> <!-- Add a redirect to the about page. -->
+        </div> <!-- End <div id="mySidenav" class="sidenav">. -->
+
+        <!-- Create a div for the top bar. -->
+
+        <div id = "navBar">
+            <div id = "topNav">
+                <div id = "leftNav">
+                    <a href = "javascript:void(0)"><img id = "menuButton" height = "35px" src = "Assets/Persistent/Menu-Icon.png" onclick = "openNav()"/></a> <!-- Add a button to open the navigation bar. -->
+                    <a href = "index.html"><img id = "banner" height = "35px" src = "Assets/Persistent/LogoBanner.png"/></a> <!-- Add a banner to the navigation bar that will open the homepage when clicked. -->
+                </div> <!-- End div. -->
+
+            <!-- Add a search box to the right side of the navigation bar. -->
+            <!-- Code derived from https://www.w3schools.com/howto/howto_css_searchbar.asp. -->
+                <div id = "rightNav">
+                    <div id = "searchBoxContainer"><input id = "searchBox" type = "search" placeholder = "Search..." name = "search" required onkeyup = "searchInput(event)"></div> <!-- Add a search box. -->
+                    <a href = "javascript:void(0)"><img id = "searchButton" height = "35px" src = "Assets/Persistent/Search-Icon.png" onclick = "searchButton()"/></a> <!-- Add a search button. -->
+                </div> <!-- End div. -->
+            </div> <!-- End div. -->
+        </div> <!-- End div. -->
+
+        <!-- Add some text to the homepage. -->
+
+        <div class = "headerBackdrop"><h1>The Capitol Broadcast Team</h1></div> <!-- Add heading text. -->
+        <p><b>Communication is key. Ham radios, audio/video, you name it, we do it.</p></b> <!-- End bold paragraph text. -->
+
+        <div class = "headerBackdrop"><h1>What is the Capitol Broadcast Team</h1></div> <!-- Add heading text. -->
+        <p><b>
+            The Capitol Broadcast Team is a group of Capitol Technology University students interested in the fundamental 
+            thing that made this school what it is&#8212communications. Going back to the school's roots when it was known 
+            as the Capitol Radio Engineering Institute, the Capitol Broadcast Team aims to not only work with, research, 
+            and educate on radio communications but all forms communications.
+        </p></b> <!-- End bold paragraph text. -->
+
+        <div class = "headerBackdrop"><h1>What to Find Here</h1></div> <!-- Add heading text. -->
+        <p><b>
+            This website contains URLs dedicated to all things broadcast. At the highest level, this website contains 
+            <a href = "education.html" class = "link">general information about broadcast technologies</a>, <!-- Embed a link within the text. -->
+            a page for 
+            <a href = "nightwatchers.html" class = "link">nominations and voting for Capitol's resident movie watching club (The Nightwatchers)</a>, <!-- Embed a link within the text. -->
+            a page for students of Capitol Technology University to 
+            <a href = "capitolBroadcastTrade.php" class = "link">sell and trade broadcast equiment/technology</a>, <!-- Embed a link within the text. -->
+            and 
+            <a href = "education.html" class = "link">information about Capitol Technology University itself</a>.<!-- Embed a link within the text. -->
+            <br><br> <!-- Add two newlines. -->
+            We hope you have fun and learn a lot on this website!
+        </p></b> <!-- End bold paragraph text. -->
+    </body> <!-- End body. -->
+</html> <!-- End html. -->

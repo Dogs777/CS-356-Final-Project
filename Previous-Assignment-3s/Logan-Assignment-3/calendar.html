@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="javascript.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Fitness Fixer</title>
+</head>
+<body onload="putcal(thisday)">
+    <div class="banner">
+        <div class="banner_title">
+            <p style="margin: 10px 4px 0px 0px;">Food Calendar</p>
+        </div>
+        <div class="banner_buttons">
+            <button id ="home" onclick="location.href = 'index.html';">
+                Home
+                <span class="material-icons">
+                    home
+                </span>
+            </button>
+            <button id ="news" onclick="location.href = 'news.html';">
+                News
+                <span class="material-symbols-outlined">
+                    newspaper
+                </span>
+            </button>
+            <button id ="bmr" onclick="location.href = 'bmr.html';">
+                BMR
+                <span class="material-symbols-outlined">
+                    calculate
+                </span>
+            </button>
+            <button id ="calendar1">
+                Calendar
+                <span class="material-icons">
+                    calendar_month
+                </span>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div id="calendar" class="calendar">
+        </div>
+        <button onclick="returntoday()" class="todaybuttons">Today</button>
+    </div>
+
+
+</body>
+</html>
