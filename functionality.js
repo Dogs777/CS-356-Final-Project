@@ -140,22 +140,22 @@ function sizeAdjust()
 
                 catch {} // Catch and do nothing.
 
-                try
-                {
-                    if (document.getElementById('my_calendar') != null) {
-                        document.getElementById('my_calendar').style.width = "500px"
-                    }
-                    document.getElementById("home").innerHTML = "Home<span class='material-icons'>home</span > ";
-                    document.getElementById("news").innerHTML = "News<span class='material-symbols-outlined'>newspaper</span>";
-                    document.getElementById("bmr").innerHTML = "BMR<span class='material-symbols-outlined'>calculate</span>";
-                    document.getElementById("calendar1").innerHTML = "Calendar<span class='material-icons'>calendar_month</span > ";
-                    //document.getElementById("page1").style.width = "25%";
-                    //document.getElementById("page2").style.width = "25%";
-                    //document.getElementById("page3").style.width = "25%";
-                    //document.getElementById("page4").style.width = "25%";
-                }
+                // try
+                // {
+                //     if (document.getElementById('my_calendar') != null) {
+                //         document.getElementById('my_calendar').style.width = "500px"
+                //     }
+                //     document.getElementById("home").innerHTML = "Home<span class='material-icons'>home</span > ";
+                //     document.getElementById("news").innerHTML = "News<span class='material-symbols-outlined'>newspaper</span>";
+                //     document.getElementById("bmr").innerHTML = "BMR<span class='material-symbols-outlined'>calculate</span>";
+                //     document.getElementById("calendar1").innerHTML = "Calendar<span class='material-icons'>calendar_month</span > ";
+                //     //document.getElementById("page1").style.width = "25%";
+                //     //document.getElementById("page2").style.width = "25%";
+                //     //document.getElementById("page3").style.width = "25%";
+                //     //document.getElementById("page4").style.width = "25%";
+                // }
 
-                catch {}
+                // catch {}
             } // End if (noSearchBar).
         } // End if (window.outerWidth >= 700).
 
@@ -206,23 +206,23 @@ function sizeAdjust()
 
                 catch {} // Catch and do nothing.
 
-                try
-                {
-                    if (document.getElementById('my_calendar') != null) {
-                        document.getElementById('my_calendar').style.width = "300px";
-                        document.getElementById('my_calendar').style.margin = "0px";
-                    }
-                    document.getElementById("home").innerHTML = "<span class='material-icons'>home</span > ";
-                    document.getElementById("news").innerHTML = "<span class='material-symbols-outlined'>newspaper</span>";
-                    document.getElementById("bmr").innerHTML = "<span class='material-symbols-outlined'>calculate</span>";
-                    document.getElementById("calendar1").innerHTML = "<span class='material-icons'>calendar_month</span > ";
-                    //document.getElementById("page1").style.width = "50%";
-                    //document.getElementById("page2").style.width = "50%";
-                    //document.getElementById("page3").style.width = "50%";
-                    //document.getElementById("page4").style.width = "50%";
-                }
+                // try
+                // {
+                //     if (document.getElementById('my_calendar') != null) {
+                //         document.getElementById('my_calendar').style.width = "300px";
+                //         document.getElementById('my_calendar').style.margin = "0px";
+                //     }
+                //     document.getElementById("home").innerHTML = "<span class='material-icons'>home</span > ";
+                //     document.getElementById("news").innerHTML = "<span class='material-symbols-outlined'>newspaper</span>";
+                //     document.getElementById("bmr").innerHTML = "<span class='material-symbols-outlined'>calculate</span>";
+                //     document.getElementById("calendar1").innerHTML = "<span class='material-icons'>calendar_month</span > ";
+                //     //document.getElementById("page1").style.width = "50%";
+                //     //document.getElementById("page2").style.width = "50%";
+                //     //document.getElementById("page3").style.width = "50%";
+                //     //document.getElementById("page4").style.width = "50%";
+                // }
 
-                catch {}
+                // catch {}
             } // End if (!noSearchBar).
 
             try
@@ -468,47 +468,52 @@ function showwater() {
  * Calendar Functions
  * * * * * * * * * * */
 
-function duplicateResize() {
-    width = this.innerWidth;
-    height = this.innerHeight;
-    if (width >= 700) {
-        try
-        {
-            if (document.getElementById('my_calendar') != null) {
-                document.getElementById('my_calendar').style.width = "500px"
-            }
-            document.getElementById("home").innerHTML = "Home<span class='material-icons'>home</span > ";
-            document.getElementById("news").innerHTML = "News<span class='material-symbols-outlined'>newspaper</span>";
-            document.getElementById("bmr").innerHTML = "BMR<span class='material-symbols-outlined'>calculate</span>";
-            document.getElementById("calendar1").innerHTML = "Calendar<span class='material-icons'>calendar_month</span > ";
-            //document.getElementById("page1").style.width = "25%";
-            //document.getElementById("page2").style.width = "25%";
-            //document.getElementById("page3").style.width = "25%";
-            //document.getElementById("page4").style.width = "25%";
-        }
-
-        catch {}
-    }
-    else {
-        try
-        {
-            if (document.getElementById('my_calendar') != null) {
-                document.getElementById('my_calendar').style.width = "300px";
-                document.getElementById('my_calendar').style.margin = "0px";
-            }
-            document.getElementById("home").innerHTML = "<span class='material-icons'>home</span > ";
-            document.getElementById("news").innerHTML = "<span class='material-symbols-outlined'>newspaper</span>";
-            document.getElementById("bmr").innerHTML = "<span class='material-symbols-outlined'>calculate</span>";
-            document.getElementById("calendar1").innerHTML = "<span class='material-icons'>calendar_month</span > ";
-            //document.getElementById("page1").style.width = "50%";
-            //document.getElementById("page2").style.width = "50%";
-            //document.getElementById("page3").style.width = "50%";
-            //document.getElementById("page4").style.width = "50%";            
-        }
-
-        catch {}
-    }
+function initializeCalendar(thisday)
+{
+    sizeAdjust();
+    putcal(thisday);
 }
+// function duplicateResize() {
+//     width = this.innerWidth;
+//     height = this.innerHeight;
+//     if (width >= 700) {
+//         try
+//         {
+//             if (document.getElementById('my_calendar') != null) {
+//                 document.getElementById('my_calendar').style.width = "500px"
+//             }
+//             document.getElementById("home").innerHTML = "Home<span class='material-icons'>home</span > ";
+//             document.getElementById("news").innerHTML = "News<span class='material-symbols-outlined'>newspaper</span>";
+//             document.getElementById("bmr").innerHTML = "BMR<span class='material-symbols-outlined'>calculate</span>";
+//             document.getElementById("calendar1").innerHTML = "Calendar<span class='material-icons'>calendar_month</span > ";
+//             //document.getElementById("page1").style.width = "25%";
+//             //document.getElementById("page2").style.width = "25%";
+//             //document.getElementById("page3").style.width = "25%";
+//             //document.getElementById("page4").style.width = "25%";
+//         }
+
+//         catch {}
+//     }
+//     else {
+//         try
+//         {
+//             if (document.getElementById('my_calendar') != null) {
+//                 document.getElementById('my_calendar').style.width = "300px";
+//                 document.getElementById('my_calendar').style.margin = "0px";
+//             }
+//             document.getElementById("home").innerHTML = "<span class='material-icons'>home</span > ";
+//             document.getElementById("news").innerHTML = "<span class='material-symbols-outlined'>newspaper</span>";
+//             document.getElementById("bmr").innerHTML = "<span class='material-symbols-outlined'>calculate</span>";
+//             document.getElementById("calendar1").innerHTML = "<span class='material-icons'>calendar_month</span > ";
+//             //document.getElementById("page1").style.width = "50%";
+//             //document.getElementById("page2").style.width = "50%";
+//             //document.getElementById("page3").style.width = "50%";
+//             //document.getElementById("page4").style.width = "50%";            
+//         }
+
+//         catch {}
+//     }
+// }
 
 var thisday = new Date(); //This is how the calendar knows what day the calendar is open and thus how to flip back to it and highlight it
 var mn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; //Array for month names
@@ -617,7 +622,7 @@ function putcal(somedate, todaybutton) {
     var somedatename = mn[somedate.getMonth()];
 
     var htmlstring = "";
-    htmlstring += "<table id = 'my_calendar' style='text-align: center; border: 2px; border-style: solid; margin: auto; margin-top: 10px; padding: 10px; border-radius: 10px; width: 500px; height: 500px; background: #ffb3b3; font-size: 150 %; '>";
+    htmlstring += "<table id = 'my_calendar' style='text-align: center; border: 2px; border-style: solid; margin: auto; margin-top: 10px; padding: 10px; border-radius: 10px; width: 95%; height: 500px; background: #ffb3b3; font-size: 150 %; '>";
     htmlstring += bannerrow(somedatename, somedate);
     htmlstring += colheadrow();
     htmlstring += putmonth(firstdow, somemonth, todaybutton);
@@ -626,7 +631,7 @@ function putcal(somedate, todaybutton) {
 
 
     document.getElementById("calendar").innerHTML = htmlstring;
-    duplicateResize();
+    // duplicateResize();
 }
 
 
@@ -639,6 +644,8 @@ function putcal(somedate, todaybutton) {
 let items = [["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""]];
 function clickDate(i, j) {
     console.log("i: " + i + "j: " + j);
-    document.getElementById("calendar_entry").innerHTML = items[i][j];
+    //items[i, j] = document.getElementById("calendar_entry").innerHTML;
+    document.getElementById("calendar_entry").innerHTML = "";
+    console.log(items[i][j]);
 }
 

@@ -322,7 +322,6 @@ a { color: white; } /* Make a text color white. */
 
  .today {
     background: LightCoral;
-    
 }
 
 .todaybuttons {
@@ -337,8 +336,7 @@ a { color: white; } /* Make a text color white. */
     margin-top: 10px;
 }
 .calendar {
-    width: 500px;
-    margin: auto;
+    max-width: 100%;
 }
 
 .banner_cal {
@@ -348,7 +346,7 @@ a { color: white; } /* Make a text color white. */
 }
 
 .banner_title {
-    font-size: 28px;
+    font-size: 48px;
     text-align: center;
 }
  

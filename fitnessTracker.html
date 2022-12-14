@@ -20,7 +20,7 @@
 
     <!-- Body HTML. -->
 
-    <body onload = "putcal(thisday)">
+    <body onload = "initializeCalendar(thisday)">
         <!-- Create a div for the side navigation. -->
         <!-- Code derived from https://www.w3schools.com/howto/howto_js_sidenav.asp. -->
         <div id="mySidenav" class="sidenav">
@@ -56,7 +56,7 @@
             </div> <!-- End div. -->
 
             <div id = "right50" class = "split right50">
-                <div class="container">
+                <div class="container" style = "vertical-align: middle;">
                     <div id="calendar" class="calendar">
                     </div>
                     <button onclick="returntoday()" class="todaybuttons">Today</button>
