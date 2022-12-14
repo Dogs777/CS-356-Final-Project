@@ -135,7 +135,7 @@
 
             <!-- Create a div for the right split. -->
 
-            <div id = "right25" class = "split right25" style = "horizontal-align: center;">
+            <div id = "right25" class = "split right25" style = "horizontal-align: center; padding-top: 18px;">
 
                 <!-- Code modified from from https://gist.github.com/Tom7762/e60213a139cbdaf94c04a779bc593ea1. -->
                 <?php
@@ -143,6 +143,7 @@
                     $feeds = array(
                         "https://nitter.snopyta.org/GoldsGym/rss",
                         "https://nitter.snopyta.org/LAFitness/rss",
+                        "https://nitter.snopyta.org/Fitness19Gyms/rss",
                         // A comma is needed on the last index of the array for this code to work for some reason. It might be a thing later on though I don't entirely know how to PHP. 
                     );
                     
@@ -162,11 +163,13 @@
                     //Print all the entries
                     foreach($entries as $entry)
                     {
+                        $desc = preg_replace('/max-width:250px/i', 'width: 90%; vertical-align: middle; margin-left: 5%', $entry->description);
                         ?>
-                        <div style = "background-color: rgb(50, 50, 50);">
-                            <b><?= $entry->description ?></b>
+                        <div style = "background-color: rgb(50, 50, 50); width: 95%; vertical-align: middle; margin-left: auto; margin-right: auto;">
+                            <b><?= $desc ?></b>
                             <p style = "max-width: 95%; width: 95%; display: block; margin-left: auto; margin-right: auto;"><b>
                                 <br> <!-- Add a newline. -->
+                                <?= $entry->dc.creator ?>
                                 <b><a href="<?= $entry->link ?>" class = "link">View on Nitter</a></b>
                                 <br> <!-- Add a newline. -->
                                 <?= strftime('%m/%d/%Y %I:%M %p', strtotime($entry->pubDate)) ?>

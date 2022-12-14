@@ -12,8 +12,8 @@ let noSearchBar = false; // Create a tracker to track whether or not there is a 
 
 // Functions.
 
-/** * * * * * * * * * * * * *
- * Generalized functionality
+/** * * * * * * * * * * * *
+ * UI Scaling Functionality
  * * * * * * * * * * * * * */
 
 /**
@@ -23,7 +23,7 @@ function sizeAdjust()
 {
     const setupAsync = async () => // Asynchronously adjust the size.
     {
-        if (window.outerWidth >= 1100) // If the window width is greater than or equal to 1000 pixels...
+        if (window.innerWidth >= 1100) // If the window width is greater than or equal to 1000 pixels...
         {
             try
             {
@@ -92,7 +92,7 @@ function sizeAdjust()
         } // End else.
 
 
-        if (window.outerWidth >= 700) // If the window width is greater than or equal to 700 pixels...
+        if (window.innerWidth >= 700) // If the window width is greater than or equal to 700 pixels...
         {
             if (noSearchBar) // If there is currently no search bar...
             {

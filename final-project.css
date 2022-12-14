@@ -301,7 +301,7 @@ a { color: white; } /* Make a text color white. */
     max-width: 85%;
     padding-bottom: 0px;
     margin-bottom: 15px;
-flex: 100%;
+    flex: 100%;
 }
 
 .flex-item-vertical-vertical
