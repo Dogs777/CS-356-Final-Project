@@ -473,6 +473,7 @@ function initializeCalendar(thisday)
     sizeAdjust();
     putcal(thisday);
 }
+
 // function duplicateResize() {
 //     width = this.innerWidth;
 //     height = this.innerHeight;
@@ -520,6 +521,8 @@ var mn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augus
 var maxdays = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //Array for total days in month !NOTE February is determined later based on leap year
 var monthchange = 0; //Checker used to change the month in the changecal method
 var yearchange = 0; //Checker used to change the year in the changecal method
+let currentDay = thisday.getDate() - 1;
+let currentMonth = thisday.getMonth();
 
 function bannerrow(monthname, somedate) {
     //This function creates the top of the calendar, including the month name, and buttons to change the month/year of the calendar
@@ -590,11 +593,11 @@ function putmonth(firstdow, somemonth, todaybutton) {
             }
             else {
                 if ((counter == thisday.getDate() && monthchange == 0 && yearchange == 0) || (counter == thisday.getDate() && todaybutton)) {
-                    rowstring += "<td id = \"today\" onclick = \"clickDate(" + counter  + "," + somemonth +  ");\"><a href = \"javascript:void(0)\">" + counter;
+                    rowstring += "<td id = \"today\" onclick = \"clickDate(" + (counter - 1)  + "," + somemonth +  ");\"><a href = \"javascript:void(0)\">" + counter;
                     counter++;
                 }
                 else {
-                    rowstring += "<td onclick = \"clickDate(" + counter + "," + somemonth + ");\" style = \"background: rgb(235, 126, 126);\"><a href = \"javascript:void(0)\">" + counter;
+                    rowstring += "<td onclick = \"clickDate(" + (counter - 1) + "," + somemonth + ");\" style = \"background: rgb(235, 126, 126);\"><a href = \"javascript:void(0)\">" + counter;
                     counter++;
                 }
             }
@@ -641,10 +644,14 @@ function putcal(somedate, todaybutton) {
 /**
  * Builds an HTML calendar string and applies it to the main calendar HTML code.
  */
-let array = new Array(12).fill(new Array(31));
+let fitnessLogArray = new Array(12).fill(new Array(31).fill(""));
 
 function clickDate(day, month) {
-console.log(day);
-console.log(month);
+    fitnessLogArray[currentMonth][currentDay] = fitnessLog.value;
+
+    fitnessLog.value = fitnessLogArray[month][day]
+
+    currentDay = day;
+    currentMonth = month;
 }
 
