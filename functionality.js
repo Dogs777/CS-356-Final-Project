@@ -11,6 +11,7 @@
 let noSearchBar = false; // Create a tracker to track whether or not there is a search bar that is initialized to true.
 let date = new Date();
 let year, month, day;
+let fitnessLogArray = new Array(12).fill(new Array(31).fill(""));
 
 // Functions.
 
@@ -427,16 +428,13 @@ function calculate() {
 
     //for water intake, I actually convert weight back into lbs because you should have your ~ bodyweight in oz of water
     water = Math.round(weight * 220.462) / 100;
-        showbmr();
-        document.getElemenyById('bmr_button').onclick() = showbmr();
-        document.getElemenyById('bmi_button').onclick() = showbmi();
-        document.getElemenyById('water_button').onclick() = showwater();
-        document.getElementById('sedentary').innerHTML = Math.round(bmr * 1.2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        document.getElementById('light').innerHTML = Math.round(bmr * 1.375).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        document.getElementById('moderate').innerHTML = Math.round(bmr * 1.465).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        document.getElementById('advanced').innerHTML = Math.round(bmr * 1.55).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        document.getElementById('extreme').innerHTML = Math.round(bmr * 1.725).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        document.getElementById('elite').innerHTML = Math.round(bmr * 1.9).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    showbmr();
+    document.getElementById('sedentary').innerHTML = Math.round(bmr * 1.2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    document.getElementById('light').innerHTML = Math.round(bmr * 1.375).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    document.getElementById('moderate').innerHTML = Math.round(bmr * 1.465).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    document.getElementById('advanced').innerHTML = Math.round(bmr * 1.55).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    document.getElementById('extreme').innerHTML = Math.round(bmr * 1.725).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    document.getElementById('elite').innerHTML = Math.round(bmr * 1.9).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 //The three function below are for switching between views of BMR, BMI, and water
@@ -472,6 +470,8 @@ function initializeCalendar(thisday)
 {
     sizeAdjust();
     putcal(thisday);
+    if (localStorage.getItem("fitnessLogArray"))
+        fitnessLogArray = localStorage.getItem("fitnessLogArray");
 }
 
 // function duplicateResize() {
@@ -644,8 +644,6 @@ function putcal(somedate, todaybutton) {
 /**
  * Builds an HTML calendar string and applies it to the main calendar HTML code.
  */
-let fitnessLogArray = new Array(12).fill(new Array(31).fill(""));
-
 function clickDate(day, month) {
     fitnessLogArray[currentMonth][currentDay] = fitnessLog.value;
 
@@ -653,5 +651,7 @@ function clickDate(day, month) {
 
     currentDay = day;
     currentMonth = month;
+
+    localStorage.setItem('fitnessLogArray', fitnessLogArray);
 }
 
