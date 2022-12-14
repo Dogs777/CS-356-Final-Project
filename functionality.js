@@ -590,15 +590,15 @@ function putmonth(firstdow, somemonth, todaybutton) {
             }
             else {
                 if ((counter == thisday.getDate() && monthchange == 0 && yearchange == 0) || (counter == thisday.getDate() && todaybutton)) {
-                    rowstring += "<td class='today'> " + counter;
+                    rowstring += "<td id = \"today\" onclick = \"clickDate(" + counter  + "," + somemonth +  ");\"><a href = \"javascript:void(0)\">" + counter;
                     counter++;
                 }
                 else {
-                    rowstring += "<td onclick='clickDate(" + j + ", "+ i + ")'> " + counter;
+                    rowstring += "<td onclick = \"clickDate(" + counter + "," + somemonth + ");\" style = \"background: rgb(235, 126, 126);\"><a href = \"javascript:void(0)\">" + counter;
                     counter++;
                 }
             }
-            rowstring += "</td>";
+            rowstring += "</a></td>";
         }
         rowstring += "</tr>";
     }
@@ -641,11 +641,10 @@ function putcal(somedate, todaybutton) {
 /**
  * Builds an HTML calendar string and applies it to the main calendar HTML code.
  */
-let items = [["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""]];
-function clickDate(i, j) {
-    console.log("i: " + i + "j: " + j);
-    //items[i, j] = document.getElementById("calendar_entry").innerHTML;
-    document.getElementById("calendar_entry").innerHTML = "";
-    console.log(items[i][j]);
+let array = new Array(12).fill(new Array(31));
+
+function clickDate(day, month) {
+console.log(day);
+console.log(month);
 }
 

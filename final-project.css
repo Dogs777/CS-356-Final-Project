@@ -320,9 +320,7 @@ a { color: white; } /* Make a text color white. */
  * Calendar CSS
  * * * * * * * */
 
- .today {
-    background: LightCoral;
-}
+ #today { background: rgb(165, 59, 59); }
 
 .todaybuttons {
     font-size: 18px;

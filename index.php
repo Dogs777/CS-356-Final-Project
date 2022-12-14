@@ -160,7 +160,7 @@
                             <div class = "h_iframe">
                                 <iframe
                                     width="100%"
-                                    src="https://youtube.com/embed/vHqT1God9vk"
+                                    src="https://www.youtube.com/embed/7zR_5o6NvmE"
                                     title="YouTube video player"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -171,21 +171,20 @@
                         </div> <!-- End div. -->
 
                         <div class = "headerBackdrop">
-                            <h1>Open Source Scan Converter (OSSC)</h1> <!-- Add heading text. -->
-                            <h2>$150</h2> <!-- Add heading text. -->
+                            <h1>Start Your Own Home Gym</h1> <!-- Add heading text. -->
+                            <h2>$500</h2> <!-- Add heading text. -->
                         </div> <!-- End div. -->
 
-                        <!-- The following text is derived from from https://www.retrorgb.com/ossc.html. -->
+                        <!-- The following text is derived from from https://www.dickssportinggoods.com/f/home-gyms. -->
                         <p><b>
-                            The Open Source Scan Converter is a zero lag upscaler. 
-                            At the moment, it is by far the sharpest way to play your analog consoles via HDMI, 
-                            offering tons of options, 2x 480p (960p) and up to 5x 240p (1080p!). 
-                            It's only shortcoming is it's not compatible with all TV's in every mode, 
-                            but it's still an excellent choice for all retro-gaming videophiles!
+                            The biggest hurdle with starting exercise is going to the gym. 
+                            That is where a starter home gym might be necessary, 
+                            There is plenty of resources online on where to start and what is cheapest. 
+                            Some people even make some of their equipment using wood for cheap.
                             <br><br> <!-- Add two newlines. -->
                             For more information, visit this webpage:
                             <br> <!-- Add a newline. -->
-                            <a href = "https://www.retrorgb.com/ossc.html" class = "link">https://www.retrorgb.com/ossc.html</a> <!-- Embed a link within the text. -->
+                            <a href = "https://www.dickssportinggoods.com/f/home-gyms" class = "link">https://www.dickssportinggoods.com/f/home-gyms</a> <!-- Embed a link within the text. -->
                         </b></p>
                     </div>
 
