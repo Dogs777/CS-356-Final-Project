@@ -295,104 +295,15 @@ function searchButton()
         window.alert("You must enter something to search for."); // Tell the user that they must enter some form of input.
 } // End function search().
 
-/** * * * * * * * * * * * * * * * *
- * Nightwatchers split box functions
- * * * * * * * * * * * * * * * * * */
-
-/**
- * Initialize the right split for the Nightwatchers page.
- */
-function initializeRightBox()
-{
-    // Declarations and initializations.
-
-    const d = (new Date).getDay(); // Acqure the current day of the week.
-    let ballotID = "rcidCrUTpC64fYovdFKBnj"; // Create a varialbe to store the ballot ID, must be manually set each week.
-
-    // Execution.
-
-    if (d == 4) // If it is a Thursday...
-        document.getElementById("nightwatersRightBox").innerHTML = "<iframe src=\"https://www.rcv123.org/ballot/" + ballotID + "?embed=true\" title=\"RCV123 Ballot\" width=\"100%\" height=\"700\"></iframe>"; // Set the link that of the ballot page.
-
-    else if (d == 5) // If it is a Friday...
-        document.getElementById("nightwatersRightBox").innerHTML = "<iframe src=\"https://www.rcv123.org/results/" + ballotID + "?embed=true\" title=\"RCV123 Ballot\" width=\"100%\" height=\"700\"></iframe>"; // Set the link to that of the results page.
-} // End function initializeRightBox().
-
-/**
- * Takes a nomination entry and appends it to a JSON file.
- */
-function submitNomination()
-{
-    // Code utilized from https://evdokimovm.github.io/javascript/nodejs/2016/11/11/write-data-to-local-json-file-using-nodejs.html.
-
-    let fs = require('fs');
-
-    fs.readFile("nominations.json", 'utf-8', function(err, data)
-    {
-        if (err)
-            throw err;
-
-        let arrayOfObjects = JSON.parse(data);
-
-        arrayOfObjects.users.push(JSON.stringify({name: nameBox.value, year: yearBox.value, videoID: videoIDBox.value}));
-    }); // End fs.readFile("nominations.json", 'utf-8', function(err, data).
-
-    fs.writeFile('./users.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err)
-    {
-		if (err)
-            throw err;
-	}); // End fs.writeFile('./users.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err).
-} // End function submitNomination().
-
-/** * * * * * * * * * * * * * * * *
- * Capitol Broadcast Trade functions
- * * * * * * * * * * * * * * * * * */
-function placeOrder()
-{
-    // Declarations and initializations.
-
-    let email = emailBox.value; // Acquire the user's email from the email box and store it in the email variable.
-
-    // Email validation regex taken from https://www.w3resource.com/javascript/form/email-validation.php.
-    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) // If the email is not valid...
-    {
-        window.alert("You must enter a valid email address."); // Prompt the user for a valid email address.
-        return; // End the function's execution.
-    } // End if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))).
-
-    let orderMessage = orderBox.value; // Acquire the user's order message from the order box and store it in the orderMessage variable.
-
-    if (orderMessage.length == 0) // If nothing was entered in the order box...
-    {
-        window.alert("You must enter what you want to purchase if you want to purchase something."); // Prompt the user for order details.
-        return; // End the function's execution.
-    } // End if (orderMessage.length == 0).
-
-    // Execution.
-
-    // Code utilized from https://www.tutorialspoint.com/how-to-read-and-write-a-file-using-javascript.
-
-    let fs = require('fs');
-
-    fs.writeFile("Orders/" + String(Math.floor(Math.random() * 100000000)) + ".txt", "Email:\n" + email + "\n\nOrder Message:\n" + orderMessage, (err) =>
-    {
-        if (err)
-            throw err;
-
-        else
-        {
-            window.alert("Your order request has been submitted! Keep an eye on your email for more information."); // Inform the user that their order has been submitted.
-            emailBox.value = ""; // Clear the email box.
-            orderMessage.value = ""; // Clear the order message box.
-        } // End else.
-    }); // End fs.writeFile("Orders/" + String(Math.floor(Math.random() * 100000000)) + ".txt", "Email:\n" + email + "\n\nOrder Message:\n" + orderMessage, (err) =>.
-} // End function placeOrder().
+/** * * * * * * * * * * * * * *
+ * BMI/BMR Calculator Functions
+ * * * * * * * * * * * * * * * */
 
 //This function is for the BMR calculator
 // Male BMR: 88.362 + (13.397 * weight in kg) + (4.799 * height in cm) - (5.677 * age in years)
 //Female BMR: 447.593 + (9.247 * weight in kg) + (3.098 * height in cm) - (4.330 * age in years)
 function calculate() {
-    var gender = document.getElementById('gender').value;
+    var sex = document.getElementById('sex').value;
     var unit_height = document.getElementById('unit_height').value;
     var unit_weight = document.getElementById('unit_weight').value;
     var weight = document.getElementById('weight').value;
@@ -400,37 +311,120 @@ function calculate() {
     var age = document.getElementById('age').value;
     var bmr;
 
+    try
+    {
+        weight = Number(weight);
+        age = Number(age)
+    }
+
+    catch
+    {
+        window.alert("You must a enter positive, integer, non-zero data for each element in the calculator (except for height if ft' in\" is selected).");
+        return;
+    }
+
+    if (Number.isNaN(weight) || weight <= 0 || !Number.isSafeInteger(weight) || Number.isNaN(age) || age <= 0 || !Number.isSafeInteger(age))
+    {
+        window.alert("You must a enter positive, integer, non-zero data for each element in the calculator (except for height if ft' in\" is selected).");
+        return;
+    }
+
     if (unit_weight == 'lbs') {
         weight = weight / 2.20462;
     }
     if (unit_height == 'ft / in') {
-        feet = height.substring(0, height.indexOf("'"));
-        inches = height.substring((height.indexOf(' ') + 1), height.indexOf('"'));
+        try
+        {
+            feet = Number(height.substring(0, height.indexOf("'")));
+            inches = Number(height.substring((height.indexOf(' ') + 1), height.indexOf('"')));
+        }
+
+        catch
+        {
+            window.alert("You must enter valid integer data in the \"ft' in\"\" format.");
+            return;
+        }
+
+        if (Number.isNaN(feet) || feet < 1 || Number.isNaN(inches) || inches < 0 || inches > 11)
+        {
+            window.alert("You must enter valid integer data in the \"ft' in\"\" format.");
+            return;
+        }
+
         height = (feet * 30.48) + (inches * 2.54);
     }
 
+    else
+    {
+        try { height = Number(height); }
+    
+        catch
+        {
+            window.alert("You must a enter positive, integer, non-zero data for each element in the calculator (except for height if ft' in\" is selected).");
+            return;
+        }
 
-    if (gender == 'male') {
+        if (Number.isNaN(height) || height <= 0 || !Number.isSafeInteger(height))
+        {
+            window.alert("You must a enter positive, integer, non-zero data for each element in the calculator (except for height if ft' in\" is selected).");
+            return;
+        }
+    }
+
+    if (age > 128 || weight > 640 || height > 384) {
+        window.alert("One or more of the values seem to have been entered in excess. Please verify your input.");
+        return;
+    }
+
+    if (sex == 'male')
         bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
-    }
-    else if (gender == 'female') {
+
+    else
         bmr = 447 + (9.247 * weight) + (3.098 * height) - (4.33 * age);
-    }
+
+    //values for BMR and casted as string
     bmr = Math.round(bmr);
     bmr_string = bmr.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    if (weight > 1200 || height > 544 || age > 244) {
-        document.getElementById('bmr').innerHTML = ("Your estimated basal metabolic rate is extraordinarily high, Our suggestion is you seek a physician");
 
-    }
-    else {
-        document.getElementById('bmr').innerHTML = ("Your estimated basal metabolic rate is " + bmr_string + " calories.");
+    //values for BMI and casted as string
+    bmi = weight / ((height / 100) * (height / 100));
+    bmi_string = (Math.round(bmi * 100) / 100).toString();
+
+    //for water intake, I actually convert weight back into lbs because you should have your ~ bodyweight in oz of water
+    water = Math.round(weight * 220.462) / 100;
+        showbmr();
+        document.getElemenyById('bmr_button').onclick() = showbmr();
+        document.getElemenyById('bmi_button').onclick() = showbmi();
+        document.getElemenyById('water_button').onclick() = showwater();
         document.getElementById('sedentary').innerHTML = Math.round(bmr * 1.2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById('light').innerHTML = Math.round(bmr * 1.375).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById('moderate').innerHTML = Math.round(bmr * 1.465).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById('advanced').innerHTML = Math.round(bmr * 1.55).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById('extreme').innerHTML = Math.round(bmr * 1.725).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById('elite').innerHTML = Math.round(bmr * 1.9).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+//The three function below are for switching between views of BMR, BMI, and water
+function showbmr() {
+    try {
+        document.getElementById('switch_text').innerHTML = ("Your estimated BMR is " + bmr_string + " calories.");
+    }catch(error) {
+        document.getElementById('switch_text').innerHTML = ("Please enter and submit data in the above fields for your BMR.");
     }
+}
 
+function showbmi() {
+    try {
+        document.getElementById('switch_text').innerHTML = ("Your BMI is " + bmi_string);
+    }catch(error) {
+        document.getElementById('switch_text').innerHTML = ("Please enter and submit data in the above fields for your BMI.");
+    }
+}
 
+function showwater() {
+    try {
+        document.getElementById('switch_text').innerHTML = ("You should drink about " + water + " ounces, or " + (Math.round(water * 2.95735) / 100) + " liters");
+    } catch(error) {
+        document.getElementById('switch_text').innerHTML = ("Please enter and submit data in the above fields for your water intake.");
+    }
 }

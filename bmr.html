@@ -81,20 +81,51 @@
                     </div> <!-- End div. -->
                 </div> <!-- End div. -->
 
-                <div class = "headerBackdrop"><h1>The History of Capitol</h1></div> <!-- Add heading text. -->
+                <div class = "headerBackdrop"><h1>What is BMI</h1></div> <!-- Add heading text. -->
+                <!-- The following text was added regarding BMI (added since assignment 3) -->
+                <p><b>
+                    Body Mass Index is a measure between a person's height and a person's weight. 
+                    This does not necessarily mean that just because you have a high BMI (meaning you weigh heavy in comparison to your height) that you are unhealthy. 
+                    However a high BMI along with other risk factors are attributed to health complications in the future. 
+                    These complications include diabetes, heart failure, high cholesterol, and more. 
+                    It is important to talk to a medical professional about ways to counter-measure any heart complications. 
+                    Additionally, forms of cardio and exercise can help to decrease your chances of serious health conditions.
+                </b></p> <!-- Add bold paragraph text. -->
+                
+                <div class = "wrapper">
+                    <div class = "h_iframe">
+                        <iframe
+                            width="560"
+                            height="315"
+                            src="https://www.youtube.com/watch?v=_OLKPpCo310"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            class = "video">
+                        </iframe> <!-- Embed a YouTube video. -->
+                    </div> <!-- End div. -->
+                </div> <!-- End div. -->
+
             </div> <!-- End div. -->
 
             <div id = "right50" class = "split right50">
                 <!-- The following text was from Logan's project 3 bmr.html -->
-                <select id="gender" name="gender" style="width: 100%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">
+                <select id="sex" name="sex" style="cursor: pointer; width: 100%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
-                <input type="text" id="height" name="height" placeholder="height..." style="box-sizing: border-box; width: 50%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: #ffb3b3; border-radius: 6px; " /><select id="unit_height" name="unit" style="width: 50%; padding: 6px; font-size: 20px; background-color: LightCoral; border-radius: 6px; "> <option value="cm">cm</option><option value="ft / in">ft' in"</option></select>
-                <input type="text" id="weight" name="weight" placeholder="weight..." style="box-sizing: border-box; width: 50%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: #ffb3b3; border-radius: 6px; " /><select id="unit_weight" name="unit" style="width: 50%; padding: 6px; font-size: 20px; background-color: LightCoral; border-radius: 6px; "> <option value="kg">kg</option><option value="lbs">lbs</option></select>
+                <input type="text" id="height" name="height" placeholder="height..." style="box-sizing: border-box; width: 50%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: #ffb3b3; border-radius: 6px; " /><select id="unit_height" name="unit" style="cursor: pointer; width: 50%; padding: 6px; font-size: 20px; background-color: LightCoral; border-radius: 6px; "> <option value="cm">cm</option><option value="ft / in">ft' in"</option></select>
+                <input type="text" id="weight" name="weight" placeholder="weight..." style="box-sizing: border-box; width: 50%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: #ffb3b3; border-radius: 6px; " /><select id="unit_weight" name="unit" style="cursor: pointer; width: 50%; padding: 6px; font-size: 20px; background-color: LightCoral; border-radius: 6px; "> <option value="kg">kg</option><option value="lbs">lbs</option></select>
                 <input type="text" id="age" name="age" placeholder="age..." style="box-sizing: border-box; width: 100%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: #ffb3b3; border-radius: 6px; " />
-                <input type="submit" value="Submit" onclick="calculate()" style="box-sizing: border-box; width: 100%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">
-                <p id="bmr">Your estimated basal metabolic rate is</p>
+                <input type="submit" value="Submit" onclick="calculate()" style="cursor: pointer; box-sizing: border-box; width: 100%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">
+                
+                <div id="switch" style="width: 100%; ">
+                    <button id="bmr_button" onclick="showbmr()" style="cursor: pointer; box-sizing: border-box; width: 32%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">BMR</button>
+                    <button id="bmi_button" onclick="showbmi()" style="cursor: pointer; box-sizing: border-box; width: 32%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">BMI</button>
+                    <button id="water_button" onclick="showwater()" style="cursor: pointer; box-sizing: border-box; width: 32%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">Water</button>
+                    <p id="switch_text">Please enter and submit data in the above fields for your BMR.</p>
+                </div>
                 <table style="width: 100%; border: 1px solid; background-color: #ffb3b3">
                     <tr>
                         <th style="background-color: LightCoral;">Activity Level</th>
