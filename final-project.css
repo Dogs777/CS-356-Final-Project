@@ -315,3 +315,42 @@ a { color: white; } /* Make a text color white. */
     margin-bottom: 15px;
     flex: 100%;
 }
+
+/** * * * * * *
+ * Calendar CSS
+ * * * * * * * */
+
+ div#calendar
+ {
+     background-color: cornsilk;
+     color: black;
+     text-align: center;
+     margin: auto;
+     width: 80%;
+ } /* End div#calendar. */
+ 
+ .button { margin: 1px; }
+ 
+ .monthYear { background-color: rgb(222, 215, 191); }
+ 
+ #presentDay
+ {
+     background-color: rgb(78, 116, 186);
+     color:rgb(238, 231, 255);
+ }
+ 
+ .weekend { background-color: cornflowerblue; }
+ 
+ .weekday { background-color: rgb(204, 198, 176); }
+ 
+ .blankDay
+ {
+     background-color: rgb(242, 235, 209);
+     color: transparent;
+ } /* End .blankDay. */
+
+ #caltable {
+    width: 80%;
+
+ }
+ 

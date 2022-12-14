@@ -36,7 +36,7 @@
             <div id = "topNav">
                 <div id = "leftNav">
                     <a href = "javascript:void(0)"><img id = "menuButton" height = "35px" src = "Assets/Persistent/Menu-Icon.png" onclick = "openNav()"/></a> <!-- Add a button to open the navigation bar. -->
-                    <a href = "index.html"><img id = "banner" height = "35px" src = "Assets/Persistent/LogoBanner.png"/></a> <!-- Add a banner to the navigation bar that will open the homepage when clicked. -->
+                    <a href = "index.php"><img id = "banner" height = "35px" src = "Assets/Persistent/LogoBanner.png"/></a> <!-- Add a banner to the navigation bar that will open the homepage when clicked. -->
                 </div> <!-- End div. -->
 
             <!-- Add a search box to the right side of the navigation bar. -->
@@ -97,7 +97,7 @@
                         <iframe
                             width="560"
                             height="315"
-                            src="https://www.youtube.com/watch?v=_OLKPpCo310"
+                            src="https://www.youtube.com/embed/_OLKPpCo310"
                             title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -107,9 +107,20 @@
                     </div> <!-- End div. -->
                 </div> <!-- End div. -->
 
+                <div class = "headerBackdrop"><h1>Why Water Intake is Important</h1></div> <!-- Add heading text. -->
+                <!-- The following text was added regarding BMI (added since assignment 3) -->
+                <p><b>
+                    Water intake is the daily measure of what a person consumes. 
+                    It is very important to stay hydrated throughout the day and to give your body the water it needs. 
+                    It is normally recommended that men consume about 3.7 liters (125.1 oz) and women 2.7 liters (91.3 oz). 
+                    This varies from activity level as well as weight however.
+                </b></p> <!-- Add bold paragraph text. -->
+
+
+
             </div> <!-- End div. -->
 
-            <div id = "right50" class = "split right50">
+            <div id = "right50" class = "split right50" style = "text-align: center;">
                 <!-- The following text was from Logan's project 3 bmr.html -->
                 <select id="sex" name="sex" style="cursor: pointer; width: 100%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">
                     <option value="male">Male</option>
@@ -120,7 +131,7 @@
                 <input type="text" id="age" name="age" placeholder="age..." style="box-sizing: border-box; width: 100%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: #ffb3b3; border-radius: 6px; " />
                 <input type="submit" value="Submit" onclick="calculate()" style="cursor: pointer; box-sizing: border-box; width: 100%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">
                 
-                <div id="switch" style="width: 100%; ">
+                <div id="switch" style="width: 100%; text-align: center;">
                     <button id="bmr_button" onclick="showbmr()" style="cursor: pointer; box-sizing: border-box; width: 32%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">BMR</button>
                     <button id="bmi_button" onclick="showbmi()" style="cursor: pointer; box-sizing: border-box; width: 32%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">BMI</button>
                     <button id="water_button" onclick="showwater()" style="cursor: pointer; box-sizing: border-box; width: 32%; padding: 6px; font-size: 20px; margin-bottom: 8px; background-color: LightCoral; border-radius: 6px; ">Water</button>
