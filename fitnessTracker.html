@@ -20,7 +20,7 @@
 
     <!-- Body HTML. -->
 
-    <body onload = "calendarInitialization()">
+    <body onload = "putcal(thisday)">
         <!-- Create a div for the side navigation. -->
         <!-- Code derived from https://www.w3schools.com/howto/howto_js_sidenav.asp. -->
         <div id="mySidenav" class="sidenav">
@@ -51,10 +51,16 @@
         <div id = "pageContents">
             <!-- Create a div for the left split. -->
 
-            <div id = "left50" class = "split left50"></div> <!-- End div. -->
+            <div id = "left50" class = "split left50">
+                <input type="text" style = "width: 50%; height: 100px;" id="calendar_entry">
+            </div> <!-- End div. -->
 
             <div id = "right50" class = "split right50">
-                <div id = "calendar"> Updating... </div>
+                <div class="container">
+                    <div id="calendar" class="calendar">
+                    </div>
+                    <button onclick="returntoday()" class="todaybuttons">Today</button>
+                </div>
             </div>
         </div> <!-- End div. -->
     </body> <!-- End body. -->

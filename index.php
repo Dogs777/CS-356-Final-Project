@@ -132,23 +132,25 @@
                     The gym is an amazing outlet for stress as you can work out a lot of mixed feelings or pain here.
                 </b></p> <!-- Add bold paragraph text. -->
 
-                <!-- Add grid boxes. -->
+                <!-- Add listings. -->
 
                 <div class="flex-container">
                     <div class="flex-left">
-                        <img src = "Assets/TradeItems/G70.jpg" width = "100%" style = "max-width: fit-content;">
-
                         <div class = "headerBackdrop">
-                            <h1>Sony G70 CRT Projector</h1> <!-- Add heading text. -->
-                            <h2>$700</h2> <!-- Add heading text. -->
+                            <h1>Resources</h1> <!-- Add heading text. -->
+                            <h2>General Fitness resources</h2> <!-- Add heading text. -->
                         </div> <!-- End div. -->
 
                         <p><b>
-                            In phenomenal condition with 300 hours total on the bulbs.
-                            <br><br> <!-- Add two newlines. -->
-                            Information about the projector can be found here:
-                            <br> <!-- Add a newline. -->
-                            <a href = "http://www.curtpalme.com/SonyG70.shtm" class = "link">http://www.curtpalme.com/SonyG70.shtm</a> <!-- Embed a link within the text. -->
+                            • <a href = "https://liamrosen.com/fitness.html" class = "link">Beginner's Health and Fitness Guide</a><br>
+                            • <a href = "https://web.archive.org/web/20190623072405/https://bodyrecomposition.com/muscle-gain/initial-body-fat-and-body-composition-changes.html/" class = "link">Initial Body Fat and Body Composition Changes</a><br>
+                            • <a href = "https://web.archive.org/web/20180627232224/https://bodyrecomposition.com/muscle-gain/general-philosophies-of-muscle-mass-gain.html/" class = "link">General Philosophies of Muscle Mass Gain</a><br>
+                            • <a href = "http://www.fitnessfrog.com/calculators/tdee-calculator.html" class = "link">Total Daily Energy Expenditure (TDEE) Calculator</a><br>
+                            • <a href = "https://stronglifts.com/" class = "link">Lift Weights, Get Stronger</a><br>
+                            • <a href = "https://www.yogajournal.com/practice/yoga-for-athletes/" class = "link">Yoga for Athletes</a><br>
+                            • <a href = "https://www.mayoclinic.org/healthy-lifestyle/fitness/multimedia/stretching/sls-20076840" class = "link">Guide to Stretches</a><br>
+                            • <a href = "https://www.boxrox.com/athletes-guide-foam-rolling/" class = "link">The Athlete's Guide to Foam Rolling</a><br>
+                            • <a href = "https://jaimeesallthatglitters.blogspot.com/2010/08/make-your-own-foam-roller.html" class = "link">Make Your Own: Foam Roller</a><br>
                         </b></p>
                     </div>
 
@@ -188,47 +190,66 @@
                     </div>
 
                     <div class="flex-left" id = "gridRSSBox" style = "overflow:auto;">
-                        <!-- Code modified from from https://www.w3schools.in/php/php-rss-feed. -->
-                        <?php
-                            $domOBJ = new DOMDocument();
-                            $domOBJ -> load("https://nitter.snopyta.org/captechu/rss"); //XML page URL.
+                        <div class = "headerBackdrop"><h1 style = "margin-top: 0px;">CTU Twitter Feed</h1></div> <!-- Add heading text. -->
+                        <br>
 
-                            $content = $domOBJ -> getElementsByTagName("item");
-
-                            foreach($content as $data)
+                        <!-- Code modified from from https://gist.github.com/Tom7762/e60213a139cbdaf94c04a779bc593ea1. -->
+                            <?php
+                            //Feed URLs
+                            $feeds = array(
+                                "https://nitter.snopyta.org/captechu/rss",
+                                // A comma is needed on the last index of the array for this code to work for some reason. It might be a thing later on though I don't entirely know how to PHP. 
+                            );
+                            
+                            //Read each feed's items
+                            $entries = array();
+                            foreach($feeds as $feed)
                             {
-                                $title = $data -> getElementsByTagName("title") -> item(0) -> nodeValue;
-                                $link = $data -> getElementsByTagName("link") -> item(0) -> nodeValue;
-                                $dateTime = $data -> getElementsByTagName("pubDate") -> item(0) -> nodeValue;
+                                $xml = simplexml_load_file($feed);
+                                $entries = array_merge($entries, $xml->xpath("//item"));
+                            }
+                            
+                            //Sort feed entries by pubDate
+                            usort($entries, function ($feed1, $feed2) { return strtotime($feed2->pubDate) - strtotime($feed1->pubDate); });
+                        ?>
 
-                                echo nl2br("<p style = \"max-width: 95%; width: 95%; display: block; margin-left: auto; margin-right: auto;\"><b>$title\n\n<a href = \"$link\" class = \"link\">$link</a>\n$dateTime</b></p>");
-                            } // End foreach($content as $data).
-                        ?>   
+                        <?php
+                            //Print all the entries
+                            foreach($entries as $entry)
+                            {
+                                $desc = preg_replace('/max-width:250px/i', 'width: 90%; vertical-align: middle; margin-left: 5%', $entry->description);
+                                ?>
+                                <div style = "background-color: rgb(50, 50, 50); width: 95%; vertical-align: middle; margin-left: auto; margin-right: auto;">
+                                    <b><?= $desc ?></b>
+                                    <p style = "max-width: 95%; width: 95%; display: block; margin-left: auto; margin-right: auto;"><b>
+                                        <br> <!-- Add a newline. -->
+                                        <b><a href="<?= $entry->link ?>" class = "link">View on Nitter</a></b>
+                                        <br> <!-- Add a newline. -->
+                                        <?= strftime('%m/%d/%Y %I:%M %p', strtotime($entry->pubDate)) ?>
+                                    </b></p>
+                                </div>
+                                <?php
+                            }
+                        ?>
                     </div>
 
                     <div class="flex-right" id = "gridMapBox">
-                        <div class = "headerBackdrop"><h1 style = "margin-top: 0px;">Where We're Located</h1></div> <!-- Add heading text. -->
+                        <div class = "headerBackdrop"><h1 style = "margin-top: 0px;">Logal Gyms</h1></div> <!-- Add heading text. -->
 
-                        <p><b>11301 Springfield Road, Laurel, MD 20708</b></p>
-                        <iframe width="100%" height="360px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-76.858549118042%2C39.04277786543801%2C-76.84438705444337%2C39.05116019329205&layer=mapnik" style="border: 3px solid rgb(13, 86, 119); display: block; margin-left: auto; margin-right: auto; margin-top: 24px;"></iframe>
+                        <p><b>Gyms nearby Capitol Technology University.</b></p>
+                        <iframe width="100%" height="360px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d49546.39125326868!2d-76.84142567842343!3d39.091681803156334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgyms%20near%20Laurel%2C%20MD!5e0!3m2!1sen!2sus!4v1671047184067!5m2!1sen!2sus" style="border: 3px solid rgb(13, 86, 119); display: block; margin-left: auto; margin-right: auto; margin-top: 24px;"></iframe>
                         <br> <!-- Add a newline. -->
-                        <a href="https://www.openstreetmap.org/#map=17/39.04697/-76.85147" class = "link">View Larger Map</a> <!-- Embed Capitol Technology University's location on OpenStreetMap. -->
+                        <a href="https://www.google.com/maps/search/gyms+near+Laurel,+MD/@39.0916818,-76.8414257,13z" class = "link">View Larger Map</a> <!-- Embed Capitol Technology University's location on OpenStreetMap. -->
                         <br><br> <!-- Add two newlines. -->
                     </div>
-
-                    <div class="flex-left"><iframe id = "submissionForm" src="https://docs.google.com/forms/d/e/1FAIpQLSdHoFTAdnarHv49ftpFjI6FFLHgLhsf2fecAqx-fjjMnZthEQ/viewform?embedded=true" width = "100%" height = "96%" frameborder = "0" marginheight = "0" marginwidth = "0" style = "margin-bottom: 12px;">Loading…</iframe></div> <!-- Embed a Google Form for listings. -->
-
-                    <div class="flex-right">
-                        <div class = "headerBackdrop"><h1 style = "margin-top: 0px;">Other Items Listed for Sale</h1></div> <!-- Add heading text. -->
-
-                        <p><b>Orders must be placed using the order form.</b></p>
-
-                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSvCbMkIjGNXQ8te8WjyfjXwwO-6ZLXoskOQ4VN9Bl35-Y7d4P_kP5WUL1FMqjj1X7drAEu59SM5dht/pubhtml?gid=1550722807single=truewidget=trueheaders=false" width = "100%" height = "300px" style = "display: block; margin-left: auto; margin-right: auto; margin-top: 24px; margin-bottom: 18px;"></iframe>
-                        </div> <!-- End div. -->
+                </div> <!-- End div. -->
+            </div> <!-- End div. -->
 
             <!-- Create a div for the right split. -->
 
             <div id = "right25" class = "split right25" style = "horizontal-align: center; padding-top: 18px;">
+                <div class = "headerBackdrop"><h1 style = "margin-top: 0px;">Gym Twitter Feeds</h1></div> <!-- Add heading text. -->
+                <br>
 
                 <!-- Code modified from from https://gist.github.com/Tom7762/e60213a139cbdaf94c04a779bc593ea1. -->
                 <?php

@@ -51,7 +51,6 @@ function sizeAdjust()
                     catch {} // Catch and do nothing.
                 } // End for (const flexItemRight of document.getElementsByClassName("flex-right")).
 
-                document.getElementById("submissionForm").height = "96%";
                 document.getElementById("gridRSSBox").style.height = "0px";
                 document.getElementById("gridRSSBox").style.height = String(document.getElementById("gridMapBox").clientHeight) + "px";
             } // End try.
@@ -85,7 +84,6 @@ function sizeAdjust()
                     catch {} // Catch and do nothing.
                 } // End for (const flexItemRight of document.getElementsByClassName("flex-right")).
 
-                document.getElementById("submissionForm").height = "480px";
                 document.getElementById("gridRSSBox").style.height = "0px";
                 document.getElementById("gridRSSBox").style.height = String(document.getElementById("gridMapBox").clientHeight) + "px";
             } // End try.
@@ -141,6 +139,23 @@ function sizeAdjust()
                 } // End try.
 
                 catch {} // Catch and do nothing.
+
+                try
+                {
+                    if (document.getElementById('my_calendar') != null) {
+                        document.getElementById('my_calendar').style.width = "500px"
+                    }
+                    document.getElementById("home").innerHTML = "Home<span class='material-icons'>home</span > ";
+                    document.getElementById("news").innerHTML = "News<span class='material-symbols-outlined'>newspaper</span>";
+                    document.getElementById("bmr").innerHTML = "BMR<span class='material-symbols-outlined'>calculate</span>";
+                    document.getElementById("calendar1").innerHTML = "Calendar<span class='material-icons'>calendar_month</span > ";
+                    //document.getElementById("page1").style.width = "25%";
+                    //document.getElementById("page2").style.width = "25%";
+                    //document.getElementById("page3").style.width = "25%";
+                    //document.getElementById("page4").style.width = "25%";
+                }
+
+                catch {}
             } // End if (noSearchBar).
         } // End if (window.outerWidth >= 700).
 
@@ -190,6 +205,24 @@ function sizeAdjust()
                 } // End try.
 
                 catch {} // Catch and do nothing.
+
+                try
+                {
+                    if (document.getElementById('my_calendar') != null) {
+                        document.getElementById('my_calendar').style.width = "300px";
+                        document.getElementById('my_calendar').style.margin = "0px";
+                    }
+                    document.getElementById("home").innerHTML = "<span class='material-icons'>home</span > ";
+                    document.getElementById("news").innerHTML = "<span class='material-symbols-outlined'>newspaper</span>";
+                    document.getElementById("bmr").innerHTML = "<span class='material-symbols-outlined'>calculate</span>";
+                    document.getElementById("calendar1").innerHTML = "<span class='material-icons'>calendar_month</span > ";
+                    //document.getElementById("page1").style.width = "50%";
+                    //document.getElementById("page2").style.width = "50%";
+                    //document.getElementById("page3").style.width = "50%";
+                    //document.getElementById("page4").style.width = "50%";
+                }
+
+                catch {}
             } // End if (!noSearchBar).
 
             try
@@ -435,109 +468,177 @@ function showwater() {
  * Calendar Functions
  * * * * * * * * * * */
 
-/**
- * Runs initialization functionality for the fitness tracker calendar.
- */
-function calendarInitialization()
-{
-    sizeAdjust();
-    buildCalendar();
-} // End function calendarInitialization().
+function duplicateResize() {
+    width = this.innerWidth;
+    height = this.innerHeight;
+    if (width >= 700) {
+        try
+        {
+            if (document.getElementById('my_calendar') != null) {
+                document.getElementById('my_calendar').style.width = "500px"
+            }
+            document.getElementById("home").innerHTML = "Home<span class='material-icons'>home</span > ";
+            document.getElementById("news").innerHTML = "News<span class='material-symbols-outlined'>newspaper</span>";
+            document.getElementById("bmr").innerHTML = "BMR<span class='material-symbols-outlined'>calculate</span>";
+            document.getElementById("calendar1").innerHTML = "Calendar<span class='material-icons'>calendar_month</span > ";
+            //document.getElementById("page1").style.width = "25%";
+            //document.getElementById("page2").style.width = "25%";
+            //document.getElementById("page3").style.width = "25%";
+            //document.getElementById("page4").style.width = "25%";
+        }
+
+        catch {}
+    }
+    else {
+        try
+        {
+            if (document.getElementById('my_calendar') != null) {
+                document.getElementById('my_calendar').style.width = "300px";
+                document.getElementById('my_calendar').style.margin = "0px";
+            }
+            document.getElementById("home").innerHTML = "<span class='material-icons'>home</span > ";
+            document.getElementById("news").innerHTML = "<span class='material-symbols-outlined'>newspaper</span>";
+            document.getElementById("bmr").innerHTML = "<span class='material-symbols-outlined'>calculate</span>";
+            document.getElementById("calendar1").innerHTML = "<span class='material-icons'>calendar_month</span > ";
+            //document.getElementById("page1").style.width = "50%";
+            //document.getElementById("page2").style.width = "50%";
+            //document.getElementById("page3").style.width = "50%";
+            //document.getElementById("page4").style.width = "50%";            
+        }
+
+        catch {}
+    }
+}
+
+var thisday = new Date(); //This is how the calendar knows what day the calendar is open and thus how to flip back to it and highlight it
+var mn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; //Array for month names
+var maxdays = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //Array for total days in month !NOTE February is determined later based on leap year
+var monthchange = 0; //Checker used to change the month in the changecal method
+var yearchange = 0; //Checker used to change the year in the changecal method
+
+function bannerrow(monthname, somedate) {
+    //This function creates the top of the calendar, including the month name, and buttons to change the month/year of the calendar
+    var banstring = "";
+    banstring += "<tr class='banner_cal'>";
+    banstring += '<td  colspan="7">';
+    banstring += "<button class='bannerbuttons' onclick='changecal(thisday, -12)'> << </button>";
+    banstring += "<button class='bannerbuttons' onclick='changecal(thisday,-1)'> < </button>";
+    banstring += monthname + " " + (somedate.getFullYear());
+    banstring += "<button class='bannerbuttons' onclick='changecal(thisday, 1)'> > </button>";
+    banstring += "<button class='bannerbuttons' onclick='changecal(thisday, 12)'> >> </button>";
+    banstring += "</td>";
+    banstring += "</tr>";
+    return banstring;
+
+}
+function colheadrow() {
+    //This function adds the days of the week to the top of the calendar
+    var colstring = "";
+    colstring += "<tr class='banner_cal'>";
+    colstring += "<td> S </td><td> M </td><td> T </td><td> W </td><td> T </td><td> F </td><td> S </td>";
+    colstring += "</tr>";
+    return colstring;
+
+}
+function changecal(somedate, step) {
+    //This function is what changes the calendar when the user presses the top buttons
+    if (step == 1) {
+        var newMonth = somedate.getMonth() + step;
+        var newDate = new Date(somedate.getFullYear() + yearchange, newMonth + monthchange);
+        monthchange++;
+        putcal(newDate, false);
+    }
+    else if (step == -1) {
+        var newMonth = somedate.getMonth() + step;
+        var newDate = new Date(somedate.getFullYear() + yearchange, newMonth + monthchange);
+        monthchange--;
+        putcal(newDate, false);
+    }
+    else if (step == 12) {
+        var newDate = new Date(somedate.getFullYear() + 1 + yearchange, somedate.getMonth() + monthchange);
+        yearchange++;
+        putcal(newDate, false);
+    }
+    else if (step == -12) {
+        var newDate = new Date(somedate.getFullYear() - 1 + yearchange, somedate.getMonth() + monthchange);
+        yearchange--;
+        putcal(newDate, false);
+    }
+}
+
+function returntoday() {
+    //This function is what returns the calendar to the correct month, day, and year
+    putcal(thisday, true);
+    yearchange = 0;
+    monthchange = 0;
+}
+
+function putmonth(firstdow, somemonth, todaybutton) {
+    //This function puts the days of the week onto the calendar
+    var rowstring = "";
+    var counter = 1;
+    for (let i = 0; i < 6; i++) {
+        rowstring += "<tr>";
+        for (let j = 0; j < 7; j++) {
+            if ((i == 0 && j < firstdow) || counter > maxdays[somemonth]) {
+                rowstring += "<td>";
+            }
+            else {
+                if ((counter == thisday.getDate() && monthchange == 0 && yearchange == 0) || (counter == thisday.getDate() && todaybutton)) {
+                    rowstring += "<td class='today'> " + counter;
+                    counter++;
+                }
+                else {
+                    rowstring += "<td onclick='clickDate(" + j + ", "+ i + ")'> " + counter;
+                    counter++;
+                }
+            }
+            rowstring += "</td>";
+        }
+        rowstring += "</tr>";
+    }
+    return rowstring;
+}
+
+function putcal(somedate, todaybutton) {
+    //This is the function that calls all of the various helper-methods to create the full calendar
+    var someyear = somedate.getFullYear();
+    var somemonth = somedate.getMonth();
+    var firstday = new Date(someyear, somemonth, 1);
+    var firstdow = firstday.getDay();
+    if ((someyear % 4 == 0 && someyear % 100 != 0) || (someyear % 400 == 0)) {
+        maxdays[1] = 29;
+    }
+    else {
+        maxdays[1] = 28;
+    }
+
+
+    var somedatename = mn[somedate.getMonth()];
+
+    var htmlstring = "";
+    htmlstring += "<table id = 'my_calendar' style='text-align: center; border: 2px; border-style: solid; margin: auto; margin-top: 10px; padding: 10px; border-radius: 10px; width: 500px; height: 500px; background: #ffb3b3; font-size: 150 %; '>";
+    htmlstring += bannerrow(somedatename, somedate);
+    htmlstring += colheadrow();
+    htmlstring += putmonth(firstdow, somemonth, todaybutton);
+    htmlstring += "</table>";
+
+
+
+    document.getElementById("calendar").innerHTML = htmlstring;
+    duplicateResize();
+}
+
+
+
+// End function calendarInitialization().
 
 /**
  * Builds an HTML calendar string and applies it to the main calendar HTML code.
  */
-function buildCalendar()
-{
-    // Declarations and initializations.
+let items = [["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""]];
+function clickDate(i, j) {
+    console.log("i: " + i + "j: " + j);
+    document.getElementById("calendar_entry").innerHTML = items[i][j];
+}
 
-    year = date.getFullYear(); // Obtain the year.
-    month = date.getMonth(); // Obtain the month
-    day = date.getDate(); // Obtain the day.
-
-    // Execution.
-
-    // Build the HTML string starting off by applying the month and year banner row.
-
-    let htmlString = "<table id = 'caltable'> <tr> <td colspan = '7' class = \"monthYear\">" +
-        date.toLocaleString('en-US', {month: 'long'}) + ", " + year + "</td> </tr>";
-
-    // Add a row of buttons for calendar interaction.
-
-    htmlString += "<tr> <td colspan = '7'> <input type = \"button\" id = \"backYear\" value = \"<<\"\
-        onclick = \"date = new Date(year - 1, month, day); buildCalendar();\" class = \"button\"/>"; // - 1 Year.
-
-    htmlString += "<input type = \"button\" id = \"backMonth\" value = \"<\"\
-        onclick = \"date = new Date(year, month - 1, day); buildCalendar();\" class = \"button\"/>"; // - 1 Month.
-
-    htmlString += "<input type = \"button\" id = \"today\" value = \"Today\"\
-        onclick = \"date = new Date(); buildCalendar();\" class = \"button\"/>"; // - Reset the date.
-
-    htmlString += "<input type = \"button\" id = \"forwardMonth\" value = \">\"\
-        onclick = \"date = new Date(year, month + 1, day); buildCalendar();\" class = \"button\"/>"; // + 1 Month.
-
-    htmlString += "<input type = \"button\" id = \"forwardYear\" value = \">>\"\
-        onclick = \"date = new Date(year + 1, month, day); buildCalendar();\" class = \"button\"/> </td> </tr>"; // + 1 Year.
-
-    // Apply the day letter heading row.
-
-    htmlString += "<tr> <td>S</td> <td>M</td> <td>T</td> <td>W</td> <td>T</td> <td>F</td> <td>S</td> </tr>"; 
-
-    // Populate the calendar with date information.
-
-    htmlString += obtainDatesHTML();
-
-    // Update the HTML code with the acquired information.
-
-    document.getElementById("calendar").innerHTML = htmlString + "</table>";
-} // End function buildCalendar().
-
-/**
- * Obtains and returns a string with the date related calendar information for a given month of a year.
- * @returns An HTML string with the date information for a given month of a year.
- */
-function obtainDatesHTML()
-{
-    // Declarations and initializations.
-
-    let firstWeekday = new Date(year, month, 1).getDay(); // Obtain the first weekday of the month.
-    let lastDay = new Date(year, month + 1, 0).getDate(); // Obtain the last day of the month by looking at the first day of the next month.
-    let daysRemaining = lastDay; // Establish how many days are left to be added.
-    let thisYear = new Date().getFullYear(); // Get the current year.
-    let thisMonth = new Date().getMonth(); // Get the current month.
-    let datesString = ""; // Create the row string.
-
-    // Execution.
-
-    for (let rows = 0; rows < 6; rows++) // Loop six times (once for each row).
-    {
-        datesString += "<tr>";
-
-        for (let i = 0; i < 7; i++) // Loop seven times (once for each column).
-        {
-            if (daysRemaining != 0 && (daysRemaining < lastDay || i == firstWeekday)) // If there are more days to be added and numbers have been added or it is the first weekday.
-            {
-                if (lastDay - daysRemaining + 1 == day && thisMonth == month && thisYear == year) // If it's the current date to be highlighted.
-                    datesString += "<td id = \"presentDay\">";
-
-                else if (i == 0 || i == 6) // If it's a weekend.
-                    datesString += "<td class = \"weekend\">";
-
-                else // It's any other day.
-                    datesString += "<td class = \"weekday\">";
-
-                datesString += lastDay - daysRemaining + 1;
-                daysRemaining--;
-            } // if (daysRemaining != 0 && (daysRemaining < lastDay || i == firstWeekday)).
-
-            else // It's not a date displaying td.
-                datesString += "<td class = \"blankDay\">x";
-
-            datesString += "</td>";
-        } // End for (let i = 0; i < 7; i++).
-
-        datesString += "</tr>";
-    } // End while (daysRemaining != 0).
-
-    return datesString;
-} // End function obtainDatesHTML().
